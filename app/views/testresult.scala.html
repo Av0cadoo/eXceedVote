@@ -1,0 +1,21 @@
+@(result:List[Vote])
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+</head>
+<body>
+    <div>VOTE</div>
+        @result.map{ res =>
+
+            <div>team : @res.teams.team_name</div>
+            <div>users : @res.users.username</div>
+            <div>vote_cate :@res.vote_rec.categories.categories_name</div>
+            <div>----------------------------------</div>
+        }
+
+
+
+
+</body>
+</html>

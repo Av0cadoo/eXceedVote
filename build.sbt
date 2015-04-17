@@ -7,11 +7,12 @@ lazy val root = (project in file(".")).enablePlugins(PlayJava)
 scalaVersion := "2.11.1"
 
 libraryDependencies ++= Seq(
+  javaCore,
   javaJdbc,
   javaEbean,
   cache,
   javaWs,
-  "org.xerial" % "sqlite-jdbc" % "3.7.2",
-  "postgresql" % "postgresql" % "9.1-901-1.jdbc4"
+  "org.mariadb.jdbc" % "mariadb-java-client" % "1.1.8",
+  "mysql" % "mysql-connector-java" % "5.1.18",
+  "commons-collections" % "commons-collections" % "3.2.1"
 )
-

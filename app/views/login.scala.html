@@ -1,25 +1,62 @@
-@(form: Form[Application.Login])
+@(form: Form[Application.Login])(account:Account)
 @css = {
 	<link rel="stylesheet" media="screen" href="@routes.Assets.at("stylesheets/main.css")">
 }
-@index("Welcome to Play")(css) {
-@helper.form(routes.Application.authenticate){
-			<h1>Sign in</h1>
+@index("Login Page")(css){
+	@if(flash.contains("success")) {
+	    <p class="success">
+	        <script type="text/javascript"> alert("@flash.get("success")") </script>
+	    </p>
+	}
+	@helper.form(routes.Application.authenticate){
+			<!-- <h1>Sign in</h1>
 			@if(form.hasGlobalErrors){
 				<p class="error">
 					@form.globalError.message
-				
+
 				</p>
 			}
-				
-				<input type="username" name="username" placeholder="username" >
-			
-				
-				<input type="password" name="password" placeholder="password" >
-			
-				
-				<button type="submit">Login</button>
-		}
-}
 
-	<!---->
+				<input type="username" name="username" placeholder="username" >
+
+
+				<input type="password" name="password" placeholder="password" >
+
+
+				<button type="submit">Login</button> -->
+	<div style="padding-top:12%">
+			<h1 class="uk-text-center" style="color:#00cfff;">Sign in</h1>
+			@if(form.hasGlobalErrors){
+				<p class="error uk-text-warning uk-text-center">
+					@form.globalError.message
+
+				</p>
+			}
+
+
+	        <div class="uk-vertical-align uk-text-center uk-height-1-1">
+	            <div class="uk-vertical-align-middle" style="width: 250px;">
+	                <form id="myform" class="uk-panel uk-panel-box uk-form">
+	                    <div class="uk-form-row">
+	                        <input class="uk-width-1-1 uk-form-large" type="username" name="username" placeholder="username">
+	                    </div>
+	                    <div class="uk-form-row">
+	                        <input class="uk-width-1-1 uk-form-large" type="password" name="password" placeholder="password">
+	                    </div>
+	                    <div class="uk-form-row">
+	                        <!-- <a class="uk-width-1-1 uk-button uk-button-primary uk-button-large" href="#" onclick="document.getElementById('myform').submit()">Login</a> -->
+	                        <button class="uk-width-1-1 uk-form-large uk-button uk-button-primary" type="submit">Login</button>
+
+                        </div>
+	                </form>
+
+
+	            </div>
+	        </div>
+
+	</div>
+		}
+}(account)
+
+<!--  -->
+

@@ -1,0 +1,22 @@
+@(result:List[Rate])
+<html>
+    <head lang="en">
+        <meta charset="UTF-8">
+        <title></title>
+    </head>
+    <body>
+        <div>RATE</div>
+        @result.map{ res =>
+
+            <div>team : @res.teams.team_name</div>
+            <div>users : @res.users.username</div>
+            <div>score : @res.rate_rec.score</div>
+            <div>vote_cate :@res.rate_rec.criteria.criteria_name</div>
+            <div>----------------------------------</div>
+        }
+
+
+
+
+    </body>
+</html>
